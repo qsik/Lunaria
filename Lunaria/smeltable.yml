@@ -1,0 +1,36 @@
+GOLD_AXE:
+  durability: 33
+  result: gold_ingot
+  ingots: 3
+GOLD_PICKAXE:
+  durability: 33
+  result: gold_ingot
+  ingots: 3
+GOLD_SWORD:
+  durability: 33
+  result: gold_ingot
+  ingots: 2
+GOLD_SPADE:
+  durability: 33
+  result: gold_ingot
+  ingots: 1
+GOLD_HOE:
+  durability: 33
+  result: gold_ingot
+  ingots: 2
+GOLD_LEGGINGS:
+    durability: 106
+    result: gold_ingot
+    ingots: 7
+GOLD_HELMET:
+    durability: 78
+    result: gold_ingot
+    ingots: 5
+GOLD_BOOTS:
+    durability: 92
+    result: gold_ingot
+    ingots: 4
+GOLD_CHESTPLATE:
+    durability: 113
+    result: gold_ingot
+    ingots: 8

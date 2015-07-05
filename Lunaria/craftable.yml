@@ -1,0 +1,13 @@
+Saddle:
+  result:
+    material: saddle
+    quantity: 1
+  shape:
+    map: "LLLLLLLIL"
+  L:
+    material: leather
+    quantity: 3 
+  I:
+    material: iron_ingot
+    quantity: 1
+  

@@ -5,9 +5,13 @@ import java.lang.reflect.Constructor;
 import org.bukkit.entity.Player;
 
 import rpg.heroes.assassin.Assassin;
+import rpg.heroes.berserker.Berserker;
+import rpg.heroes.shaman.Shaman;
 
 public enum HeroType {
-	ASSASSIN (Assassin.class);
+	ASSASSIN (Assassin.class),
+	SHAMAN (Shaman.class),
+	BERSERKER (Berserker.class);
 
 	private final Constructor<? extends Hero> ctor;
 

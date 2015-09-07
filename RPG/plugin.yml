@@ -1,18 +1,10 @@
-name: Lunaria
-main: lunaria.Main
-description: Custom plugin for the Lunaria Server
-version: 7.3.15
+name: RPG
+main: rpg.Main
+description: RPG plugin for the Lunaria Server
+version: 7.10.15
 author: qsik
 
 commands:
-  funitems:
-  usa:
-  party:
-  cake:
-  cookout:
-  
+  hero:
+  test:
 permissions:
-  funitems:
-    default: true
-  bypasstp:
-    default: false

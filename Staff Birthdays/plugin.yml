@@ -1,0 +1,8 @@
+name: BDAYS
+main: bdays.Main
+description: Staff Birthdays Plugin
+version: 9.6.15
+author: qsik
+
+commands:
+  party:

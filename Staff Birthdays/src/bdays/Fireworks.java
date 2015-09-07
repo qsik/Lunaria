@@ -132,7 +132,7 @@ public class Fireworks implements Runnable {
 			public void run() {
 				Location location = firework.getLocation();
 				firework.detonate();
-				location.getWorld().dropItemNaturally(location, new ItemStack(Material.CAKE));
+				location.getWorld().dropItem(location, new ItemStack(Material.CAKE));
 				switch (birthday) {
 				case BAY:
 					ItemStack bayBayle = new ItemStack(Material.HAY_BLOCK);
@@ -142,7 +142,7 @@ public class Fireworks implements Runnable {
 					lore.add("Don't worry, it's bae!");
 					itemMeta.setLore(lore);
 					bayBayle.setItemMeta(itemMeta);
-					world.dropItemNaturally(location, bayBayle);
+					world.dropItem(location, bayBayle);
 					break;
 				case PIGEON:
 					Chicken chicken = (Chicken) world.spawnEntity(location, EntityType.CHICKEN);
@@ -155,7 +155,7 @@ public class Fireworks implements Runnable {
 					meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.ITALIC +  "Emirrald");
 					emerald.setItemMeta(meta);
 					emerald.addUnsafeEnchantment(Enchantment.LUCK, 1);
-					world.dropItemNaturally(location, emerald);
+					world.dropItem(location, emerald);
 					break;
 				default:
 					break;

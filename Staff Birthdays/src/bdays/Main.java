@@ -1,15 +1,19 @@
 package bdays;
 
+import io.netty.util.internal.ThreadLocalRandom;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Chicken;
-import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,6 +26,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.Vector;
 
 public class Main extends JavaPlugin implements Listener {
 	public static Main plugin;
@@ -32,12 +37,31 @@ public class Main extends JavaPlugin implements Listener {
 	@EventHandler
 	public void bayBayle(BlockPlaceEvent event) {
 		if (event.getItemInHand().getItemMeta().getDisplayName().equals(ChatColor.RED + "" + ChatColor.ITALIC +  "Bay Bayle")) {
-			PotionEffect blind = new PotionEffect(PotionEffectType.INVISIBILITY, 200, 10);
-			for (Entity entity : event.getPlayer().getNearbyEntities(10, 10, 10)) {
-				if (entity instanceof Player) {
-					((Player) entity).addPotionEffect(blind);
+			final ItemStack baygle = new ItemStack(Material.BREAD);
+			ItemMeta meta = baygle.getItemMeta();
+			final Location location = event.getBlockPlaced().getLocation();
+			meta.setDisplayName(ChatColor.RED + "" + ChatColor.ITALIC + "Baygle");
+			List<String> lore = new ArrayList<String>();
+			lore.add("Bae");
+			meta.setLore(lore);
+			baygle.setItemMeta(meta);
+			final World world = event.getPlayer().getWorld();
+			final int taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+				@Override
+				public void run() {
+					Item item = world.dropItem(location.add(0, 1, 0), baygle);
+					double x = ThreadLocalRandom.current().nextDouble(-0.1, 0.1);
+					double z = ThreadLocalRandom.current().nextDouble(-0.1, 0.1);
+					item.setVelocity(new Vector(x, 0.2, z));
 				}
-			}
+			}, 0, 15);
+			Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
+
+				@Override
+				public void run() {
+					Bukkit.getScheduler().cancelTask(taskId);
+				}
+			}, 100);
 		}
 	}
 

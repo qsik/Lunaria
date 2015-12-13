@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-package funitems;
+package main;
 
 import java.io.InputStreamReader;
 import java.io.OutputStream;

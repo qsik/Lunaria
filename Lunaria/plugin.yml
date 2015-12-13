@@ -9,7 +9,6 @@ commands:
   lunaria:
     permission: ladmin
   votepay:
-  funitems:
   cake:
   usa:
     permission: usa

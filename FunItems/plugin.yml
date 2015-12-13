@@ -1,0 +1,8 @@
+name: FunItems
+main: main.FunItems
+description: Fun Items plugin for donators and staff
+version: 12.13.15
+author: qsik
+
+commands:
+  funitem

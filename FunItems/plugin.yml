@@ -5,4 +5,4 @@ version: 12.13.15
 author: qsik
 
 commands:
-  funitem
+  funitem:

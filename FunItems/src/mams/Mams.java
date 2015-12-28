@@ -2,6 +2,7 @@ package mams;
 
 import io.netty.util.internal.ThreadLocalRandom;
 import main.FunItem;
+import main.User;
 
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
@@ -10,7 +11,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
-public class Mams {
+public class Mams extends User {
+	public static final String UUID = "099ab4272eba43ee98f009818ac5433d";
+	public final String item = "Mamz's MLG No-Scoper Kitty Cannon";
 
 	@EventHandler
 	public void kittyCannon(PlayerInteractEvent event) {

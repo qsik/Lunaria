@@ -1,0 +1,15 @@
+name: Lunaria-Econ
+main: econ.Main
+description: Economy plugin for the Lunaria Server
+version: 7.30.15
+author: qsik
+depend: [Vault]
+
+commands:
+  lecon:
+    permission: ladmin
+  votepay:
+    permission: bukkit.command.op
+permissions:
+  ladmin:
+    default: false

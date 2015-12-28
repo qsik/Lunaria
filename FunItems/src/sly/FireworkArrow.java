@@ -1,7 +1,7 @@
-package runnables;
+package sly;
 
 import io.netty.util.internal.ThreadLocalRandom;
-import lunaria.Main;
+import main.FunItems;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
@@ -46,7 +46,7 @@ public class FireworkArrow implements Runnable {
 	private final Vector velocity;
 	private byte ticksLived = 0;
 	private final int taskId;
-	private final Plugin plugin = Main.plugin;
+	private final Plugin plugin = FunItems.plugin;
 
 	public FireworkArrow(Location location, Vector velocity) {
 		dx = location;
@@ -108,5 +108,4 @@ public class FireworkArrow implements Runnable {
 			}
 		}, 1);
 	}
-
 }

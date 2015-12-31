@@ -1,21 +1,23 @@
 package mams;
 
+import io.netty.util.internal.ThreadLocalRandom;
+import main.FunItems;
+
 import org.bukkit.Bukkit;
-import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.FireworkEffect.Type;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.Main;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Ocelot;
 import org.bukkit.inventory.meta.FireworkMeta;
-import org.bukkit.plugin.Plugin;
+
+import util.CustomFirework.EffectColor;
 
 public class KittyCannon implements Runnable {
 	private static final long CAT_LIFETIME = 24;
 	private final Ocelot cat;
-	private final Plugin plugin = Main.plugin;
+	private final FunItems plugin = FunItems.plugin;
 
 	public KittyCannon(Ocelot cat) {
 		this.cat = cat;
@@ -28,7 +30,9 @@ public class KittyCannon implements Runnable {
 		cat.remove();
 		final Firework firework = (Firework) location.getWorld().spawnEntity(location, EntityType.FIREWORK);
 		FireworkMeta meta = firework.getFireworkMeta();
-		meta.addEffects(FireworkEffect.builder().trail(false).flicker(false).withColor(Color.RED).with(Type.BALL).build());
+		ThreadLocalRandom r = ThreadLocalRandom.current();
+		meta.addEffects(FireworkEffect.builder().trail(false)
+				.flicker(false).withColor(EffectColor.values()[r.nextInt(17)].color).with(Type.BALL).build());
 		firework.setFireworkMeta(meta);
 		Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
 			@Override

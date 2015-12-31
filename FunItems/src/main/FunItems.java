@@ -5,18 +5,26 @@ import main.User.UserList;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import clock.Clock;
+import sly.Sly;
+
 public class FunItems extends JavaPlugin {
-
-
-	public static Plugin plugin;
+	public static FunItems plugin;
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("funitem")) {
+			switch (args[0].toLowerCase()) {
+			case "sly":
+				((Player) sender).getWorld().dropItemNaturally(((Player) sender).getLocation(), Sly.ITEM.item);
+				break;
+			case "clock":
+				((Player) sender).getWorld().dropItemNaturally(((Player) sender).getLocation(), Clock.ITEM.item);
+			}
 		}
 		return false;
 	}

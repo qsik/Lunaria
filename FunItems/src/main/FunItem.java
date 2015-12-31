@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class FunItem {
-	private static final long COOLDOWN = 1000;
+	private static final long COOLDOWN = 3000;
 	public static final Map<String, Long> TIMER = new HashMap<String, Long>();
 	public final ItemStack item;
 
@@ -32,6 +32,15 @@ public class FunItem {
 			return System.currentTimeMillis() - TIMER.get(uuid) >= COOLDOWN;
 		}
 		return true;
+	}
+
+	public static boolean matchFunItem(String id, ItemStack item) {
+		if (item.hasItemMeta()) {
+			if (item.getItemMeta().hasLore()) {
+				return item.getItemMeta().getLore().contains(id);
+			}
+		}
+		return false;
 	}
 
 	public static boolean matchFunItem(String id, Player player) {
